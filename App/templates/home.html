@@ -1,0 +1,433 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .container {
+      display: flex;
+      justify-content: space-between;
+      margin: 50px auto;
+    }
+  
+    .box {
+      position: relative;
+      width: 300px;
+      height: 400px; /* Increase the height */
+      margin-right: 20px; /* Add margin for spacing */
+      padding: 20px;
+      top: -100px;
+    }
+  
+    .purple {
+      background-color: #ACBED8
+    }
+  
+    .blue {
+      background-color:#F28F3B
+    }
+  
+    .red {
+      background-color:#688B58;
+    }
+  
+    .rectangle {
+    position: absolute;
+    top: 75%;
+    
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 45px;
+    background-color: #1F363D;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  
+    .rectangle:hover {
+      background-color: transparent;
+      border: 2px solid white; /* Add white border */
+    }
+  
+    .rectangle:active {
+      background-color: #1F363D;
+    }
+  
+    .text {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #000000;
+      font-size: 37px;
+      font-family: cursive;
+      font-weight: bold;
+      text-align: center;
+    }
+  
+    .rectangle-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+    }
+    /*.blog-entry-home {
+      display: inline-block;
+      width: 750px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      margin-top: 100px;
+    } */
+    .blog-entry-home {
+    width: 750px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    position: relative;
+    margin-top: 50px;
+  }
+  .blog-entry-home:hover {
+  background-color: #f5f5f5;
+}
+.blog-thumbnail {
+  width: 100%;
+}
+
+.blog-thumbnail img {
+  width: 100%;
+  height: auto;
+}
+
+.blog-text {
+  text-align: center;
+}
+
+.blog-text h6 {
+  margin: 0;
+}
+
+.blog-text .author {
+  margin-top: 5px;
+  color: #888;
+}
+
+.blog-entry-home::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+}
+
+.blog-entry-home:hover::after {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+    .blog-entry-home img.blog-thumbnail {
+      width: 100%; /* Set the width of the thumbnail image to 100% to fit within the div */
+      height: auto; /* Automatically adjust the height based on the width to maintain aspect ratio */
+    }
+    .post-date {
+  
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: hsl(0, 2%, 60%);
+  color: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px; /* Adjust the font size as needed */
+  overflow: hidden; /* Add this property to hide any overflowing text */
+  text-overflow: ellipsis; /* Add this property to display ellipsis for long dates */
+  white-space: nowrap; /* Add this property to prevent line breaks */
+}
+
+.post-date::before {
+  content: '';
+}
+
+
+
+
+
+
+    .blog-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .rectangle1 {
+    position: absolute;
+    top: 1075px;
+    
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 45px;
+    background-color: #ffffff;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 2px solid rgb(3, 3, 3);
+  }
+
+  
+    .rectangle1:hover {
+      background-color: transparent;
+      border: 2px solid rgb(255, 255, 255); /* Add white border */
+      background-color: #1F363D;
+    }
+  
+    .rectangle1:active {
+      background-color: #ffffff;
+    }
+  
+   
+  
+    .rectangle1-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+    }
+    .rectangle1 .read-more {
+      color: #777; /* Updated color to gray */
+    }
+
+    .rectangle1:hover .read-more {
+      color: #fff; /* Updated color to white on hover */
+    }
+    .second-div {
+      display: flex;
+      background-color: white;
+      width: 300px;
+      height: 200px;
+      margin-top: 50px;
+    }
+  
+    .third-div {
+    background-color:#ACBED8;
+    width:1500px;
+    height: 500px; /* Increased height to accommodate the circle */
+    margin-top: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Added position relative for positioning the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Added justify-content center to center the circle */
+    overflow: hidden; /* Added overflow hidden to clip the image within the circle */
+  }
+  .fourth-div {
+    background-color:#ffffff;
+    width:1500px;
+    height: 500px; /* Increased height to accommodate the circle */
+    margin-top: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Added position relative for positioning the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Added justify-content center to center the circle */
+    overflow: hidden; /* Added overflow hidden to clip the image within the circle */
+  }
+  .circle {
+    position: absolute;
+    left: 150px; /* Center the circle horizontally */
+    top: 50%; /* Center the circle vertically */
+    transform: translate(-50%, -50%); /* Adjust position using translate */
+    width: 200px; /* Adjust the size of the circle as needed */
+    height: 200px; /* Adjust the size of the circle as needed */
+    border-radius: 50%;
+    background-color: #827098;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Added overflow hidden to clip the image within the circle */
+  }
+
+  .circle img {
+    left:50px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .read-more {
+  color: #fff; /* Updated color to white */
+}
+  .centered-text {
+  position: absolute;
+  top: 950px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000000;
+  font-size: 17px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+.centered-text-1 {
+  position: absolute;
+  top: 850px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #555454;
+  font-size: 27px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+.btn-clear,
+.comment-reply-link {
+    background-color: transparent;
+    color: #938c86;
+    border-color: inherit;
+}
+
+.btn-clear:hover,
+.comment-reply-link:hover {
+    background-color: #938c86;
+    color: #fff;
+    border-color: #938c86;
+}
+
+.btn-small,
+.comment-reply-link { font-size: 0.563em; }
+
+.btn-clear.btn-small,
+.comment-reply-link { border-width: 2px; }
+.text-container {
+  position: absolute;
+  right: 20px; /* Adjust the right value as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60%;
+}
+
+.right-aligned-text {
+  text-align: justify;
+  color: #ffffff; /* Adjust text color as needed */
+}
+.right-aligned-text1 {
+  text-align:left;
+  color: #000000;
+  font-size: 40px; 
+}
+.right-aligned-text p {
+  margin: 0;
+  padding: 10px;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.5;
+}
+
+  </style>
+  
+  <div class="container">
+    <div class="box purple">
+      <div class="rectangle"><span class="read-more">Read More</span></div>
+      <h2 class="text">Blog</h2>
+      <br> <br> <br><br><br>
+      <span class="read-more">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+    </div>
+    
+    <div class="box blue">
+      <div class="rectangle"> <span class="read-more">Visit</span></div>
+      <h2 class="text">Resources</h2>
+      <br> <br> <br><br><br>
+      <span class="read-more">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+    </div>
+  
+    <div class="box red">
+      <div class="rectangle"><span class="read-more">Watch</span></div>
+      <h2 class="text">Videos</h2>
+      <br> <br> <br><br><br>
+      <span class="read-more">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+    </div>
+  </div>
+  <p class="centered-text-1">TEACHER NERDS, UNITE.</p>
+  
+  <div class="second-div">
+    <p class="centered-text">
+              If you’ve ever been told you’re way too into your job…<br>
+      If you can’t stop talking about teaching (even during happy hour)…<br>
+      If you buy teaching books with your own money and wake up in the middle of the night with lesson ideas…<br>
+      Welcome home, friend. This place was built for you.
+    </p>
+    
+  </div>
+  <div class="rectangle1"> <span class="read-more">Start here</span></div>
+  <div class="third-div">
+  
+      
+    <div class="circle">
+      <img src="static/image/Heidi.jpg" alt="Image">
+  </div>
+  <div class="text-container">
+    <p class="right-aligned-text1">Heidi Parker</p>
+    <p class="right-aligned-text">Crazy-good teaching? The kind that gives you the good butterflies and 
+      makes you sing at the top of your lungs the whole drive home? It’s an art. It’s also a science. 
+      We can study and practice it in hundreds of ways, and this is what I obsess about here.
+      When I was full-time in the trenches, I was too busy teaching to fully develop my craft, 
+      keep up with research, play around with new tools, or find PD that really hit the spot. Now I have made it my full-time job to do this for you: I dig through all of it, weed out the crap, and show you the best stuff so you can crush it in the classroom.</p>
+  </div>
+   
+  </div>
+  <!--<div>
+<div class="blog-grid">
+    {% for post in post_list|slice:":4" %}
+      
+        <div class="blog-entry-home">
+            <img src="{{ post.thumbnail_url }}" width="700" alt="Thumbnail" class="blog-thumbnail">
+            <h6><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h6>
+            by {{ post.author }} 
+            <p class="blog-content">{{ post.content|slice:":100"|safe }}</p>
+            <p class="blog-highlight">{{ post.highlight }}</p>
+            <a href="{% url 'post_detail' post.slug %}">Read More &rarr;</a>
+        </div>
+    {% endfor %}
+     </div> 
+</div>-->
+<div>
+  <div class="blog-grid">
+    {% for post in post_list|slice:":4" %}
+      <a href="{% url 'post_detail' post.slug %}" class="blog-entry-home">
+        <div class="blog-thumbnail">
+          <img src="{{ post.thumbnail_url }}" alt="Thumbnail">
+          <div class="post-date">{{ post.created_on|date:"j F Y" }}</div>
+        </div>
+        <div class="blog-text">
+          <h6>{{ post.title }}</h6>
+          <p class="author">{{ post.author }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+    
+{% endblock %}

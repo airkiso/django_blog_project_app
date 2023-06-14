@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <style>
+    .blog-cat {
+      border: 1px solid black;
+      padding: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+      display: inline-block;
+      width: 300px; /* Adjust the width as needed */
+    }
+
+    .red {
+      background-color: #ACBED8;
+     
+         height: 150px;
+    }
+
+    .blue {
+      background-color: #F28F3B;
+         height: 150px;
+    }
+
+    .green {
+      background-color: #688B58;
+          height: 150px;
+    }
+    .col-md-8 {
+      text-align: center; /* Align the boxes to the center of the page */
+    }
+  </style>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        {% for category in CATEGORY_CHOICES %}
+        <div class="blog-cat {% cycle 'red' 'blue' 'green' %}">
+          <h4>{{ category.1 }}</h4>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<!--
+<div class="blog-container">
+  {% for post in post_list|slice:":3" %}
+    <div class="blog-entry">
+      <img src="{{ post.thumbnail_url }}" alt="Thumbnail" class="blog-thumbnail">
+      <h6><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h6>
+      {{ post.author }} | {{ post.created_on }}
+      <p class="blog-content">{{ post.content|slice:":100"|safe }}</p>
+      <p class="blog-highlight">{{ post.highlight }}</p>
+      <a href="{% url 'post_detail' post.slug %}">Read More &rarr;</a>
+    </div>
+  {% endfor %}
+</div>-->
+
+<!--<div class="blog-sidebar">
+  <h3>All Blogs</h3>
+  {% for category in CATEGORY_CHOICES %}
+    <div class="bordered">
+      <h4>{{ category.1 }}</h4>
+      <ul>
+        {% for post in post_list %}
+          {% if post.category == category.0 %}
+            <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
+{% for category in CATEGORY_CHOICES %}
+<div class="blog-cat">
+  <h4>{{ category.1 }}</h4>
+  <div>
+    {% endfor %}-->
+   

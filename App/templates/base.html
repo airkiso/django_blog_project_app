@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Blog App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="static/css/styles.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-VKFQQ1r2+jST2jLYlQ/ogHsErJITu0uqhgzprNlaXp1aPwl1GkylT1yTG5iSvdk2" crossorigin="anonymous">
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html>
+  
+  <head>
+    <title>My Blog App</title>
+    <style>
+      .header {
+      background-color: #1F363D;;
+      text-align: right;
+    
+    }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+  
+      .banner {
+        background-color: #1F363D;
+        padding: 120px ;
+        text-align: center;
+        font-size: xx-large;
+      }
+      .social {
+        background-color: #1F363D;
+        padding: 50px ;
+        text-align: center;
+      
+           }
+      h1 {
+  font-size: 36px;
+  color: #333333;
+  margin-top: 0;
+}
+.candlelight {
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  top: -42px;
+}
+
+.candlelight:before {
+  color: #fff;
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 30px;
+  background-color: #ff9900;
+  border-radius: 70%;
+  top: -22px;
+  left: 2.3px;
+  box-shadow: 0 0 15px 10px rgba(255, 153, 0, 0.5); /* Updated box-shadow */
+  transform: skewX(0deg);
+}
+.candlelight:after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 10px;
+  background-color: #000;
+  top: 0px;
+  left: 5.8px;
+}
+
+
+      .menu .submenu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .menu .submenu li {
+          margin: 0;
+          padding: 0;
+        }
+      .menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        
+      }
+  
+      .menu li {
+        margin: 0 20px;
+        
+      }
+  
+      .menu li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: Arial, sans-serif; /* Change the font type to Arial or any other desired font */
+        font-size: 20px; /* Adjust the font size as needed */
+      }
+  
+      .menu li .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #979696;
+        padding: 10px;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+  
+      .menu li:hover .submenu {
+        display: block;
+      }
+      .menu li:hover > .submenu,
+      .menu li:focus > .submenu {
+        opacity: 1;
+      }
+      .menu li .submenu a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border-top: 1px solid #fff;
+      }
+      .menu li .submenu :first-child {
+        border-top: none;
+      }
+      .menu li:hover a,
+      .menu li:focus a {
+        color: #e9dddd;
+      }
+      .menu li .submenu li:hover a,
+      .menu li .submenu li:focus a {
+        color: #e2d3d3;}
+      .menu li:hover .submenu a,
+      .menu li:focus .submenu a {
+        color: #e9dddd;
+      }
+      .footer-banner {
+      background-color: #fff9f9;
+      padding: 0.5px;
+      text-align: center;
+     
+      bottom: 0;
+      left: 0;
+      width: 100%
+    }
+
+    .social-icons {
+      list-style: none;
+      padding: 0;
+    
+      
+      display: flex;
+      justify-content: center;
+    }
+
+    .social-icons li {
+      margin: 0 10px;
+    }
+
+    .social-icons li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .social-icons li a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    color: black; /* Set the initial color */
+  }
+
+  .social-icons li a:hover {
+    transform: scale(1.2); 
+    color: red;
+
+    /* Adjust the scaling factor as desired */
+  }
+    .circle-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #3b5998;
+      color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+    }
+    .circle-button1 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #ccc;
+      color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+    }
+
+    .circle-button1:hover {
+      background-color: #aaa;
+    }
+    </style>
+  </head>
+  
+  <body>
+    
+      <div class="header">
+      <ul class="menu">
+        <li><a href="{% url 'main' %}">Home</a></li>
+        <li>
+          <a href="{% url 'home' %}">Blog</a>
+        </li>
+        <li class="has-submenu">
+          <a href="#">Resources</a>
+          <ul class="submenu">
+            <li><a href="#">Math</a></li>
+              <li><a href="#">English</a></li>
+                <li><a href="#">Science</a></li>
+          </ul> 
+        </li>
+        <li><a href="#">Store</a></li>
+        <li><a href="#">Freebies</a></li>
+        <li><a href="#">Podcast</a></li>
+      </ul>
+    </div>
+    <div class="banner">
+      
+      
+      <h1><span class="candlelight">IgniteUnderstanding</span></h1>
+      <ul class="social-icons">
+        
+        <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><image xlink:href="/static/image/insta.svg" width="24" height="24" /></svg></a></li>
+        <li><a href="http://www.facebook.com"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><image xlink:href="/static/image/fb.svg" width="24" height="24" /></svg></a></li>
+        <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><image xlink:href="/static/image/youtube.svg" width="24" height="24" /></svg></a></li>
+        <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><image xlink:href="/static/image/link.svg" width="24" height="24" /></svg></a></li>
+        <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><image xlink:href="/static/image/pin.svg" width="24" height="24" /></svg></a></li>
+        <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><image xlink:href="/static/image/twit.svg" width="24" height="24" /></svg></a></li>
+        
+      </ul>
+      
+ 
+    </div>
+  
+      
+    
+  
+    
+    <!-- Rest of the content goes here -->
+  
+    
+  </body>
+  
+  </html>
+  
+
+  {% block content %}
+  <!-- Content Goes here -->
+  {% endblock content %}
+  <!-- Footer -->
+  <footer>
+    <div class="footer-banner">
+      <!-- -->
+      <p>&copy; 2023 ignite understanding. All rights reserved.</p>
+    </div>
+    
+  </footer>
+</body>
+
+</html>
